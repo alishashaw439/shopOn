@@ -1,79 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native ShopOn E-commerce App
 
-# Getting Started
+Welcome to the ShopOn App! This is a simple mobile application built using React Native and Redux that allows users to browse a list of products, add them to a cart, and also includes an admin section for adding new products.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Table of Contents
 
-## Step 1: Start the Metro Server
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running the App](#running-the-app)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+  - [User](#user)
+  - [Admin](#admin)
+- [What more could I have done](#What-more-could-I-have-done)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- User Section:
+  - Browse a list of products
+  - Add products to the cart
+  - Remove products from the cart
+  - Checkout and place orders
 
-```bash
-# using npm
-npm start
+- Admin Section:
+  - Add new products to the store
 
-# OR using Yarn
-yarn start
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm installed
+- React Native development environment set up
+- Knowledge of React Native and Redux basics
+
+## Getting Started
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/alishashaw439/shopOn.git
+   ```
+
+2. Change into the project directory:
+
+   ```bash
+   cd shopOn
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Running the App
+
+To run the app on an emulator or physical device, follow these steps:
+
+1. Start your emulator or connect your physical device to your computer.
+
+2. Run the development server:
+
+   ```bash
+   npm start
+   ```
+
+3. In a new terminal window, build and run the app on the emulator or device:
+
+   - For Android:
+
+     ```bash
+     npm run android
+     ```
+
+   - For iOS:
+
+     ```bash
+     npm run ios
+     ```
+
+Now you should see the React Native E-commerce App running on your emulator or device.
+
+## Project Structure
+
+The project structure is organized as follows:
+
+```
+├── src
+│   ├── components          # React components
+│   ├── redux            # Redux reducers
+│   ├── screens             # App screens
+│   ├── routes         # Navigation configuration
+├── App.js                  # App entry point
+├── ...
+└── README.md
 ```
 
-## Step 2: Start your Application
+## Usage
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### User
 
-### For Android
+- Open the app on your device or emulator.
+- Browse the list of products.
+- Add products to your cart.
+- Remove products from your cart.
+- View your cart.
+- Proceed to checkout to place orders.
 
-```bash
-# using npm
-npm run android
+### Admin
 
-# OR using Yarn
-yarn android
-```
+- Access the admin section.
+- Add new products to the store.
 
-### For iOS
+## What more could I have done
+- Admin can delete/edit the products
+- Authentication for admin using Async storage
+- react-native-picker library to pick images from the gallery
+- Increment/Decrement the products from product listing and cart
+- Payment integration using stripe
+- Uploading/hosting images on cloudinary
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
