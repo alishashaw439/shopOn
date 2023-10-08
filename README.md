@@ -98,9 +98,9 @@ The project structure is organized as follows:
 ```
 ├── src
 │   ├── components          # React components
-│   ├── redux            # Redux reducers
+│   ├── redux               # Redux reducers
 │   ├── screens             # App screens
-│   ├── routes         # Navigation configuration
+│   ├── routes              # Navigation configuration
 ├── App.js                  # App entry point
 ├── ...
 └── README.md
