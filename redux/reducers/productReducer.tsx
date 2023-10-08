@@ -1,6 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-
 export const productReducer = createReducer({
     products: [
         {

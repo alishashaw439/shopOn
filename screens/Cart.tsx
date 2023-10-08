@@ -6,6 +6,7 @@ import { Card } from "../components/Card"
 export const Cart = ({ navigation }) => {
     const { cartItems } = useSelector((state) => state.product)
     const dispatch = useDispatch()
+    //calculating the total price
     const calculatePrice = () => {
         let totalPrice = 0
         for (let i = 0; i < cartItems.length; i++) {
@@ -13,9 +14,11 @@ export const Cart = ({ navigation }) => {
         }
         return totalPrice
     }
+    //back button clicked functionality
     const backBtnClicked = () => {
         navigation.goBack()
     }
+    //removing the item from the cart
     const removeItem = (item) => {
         dispatch({
             type: "removeFromCart",

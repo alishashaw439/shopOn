@@ -7,9 +7,11 @@ import Toast from "react-native-toast-message";
 export const Home = ({navigation}) => {
    const {products} = useSelector((state)=>state.product)
    const dispatch = useDispatch()
+   //cart icon pressed
     const cartPressed = ()=>{
         navigation.navigate("cart")
     }
+    //add item to the cart function
     const addToCartBtn = (item)=>{
       dispatch({
         type:"addToCart",
