@@ -6,16 +6,12 @@
  */
 
 import React from 'react';
-import { View,Text } from 'react-native';
+import { Routes } from './Routes';
 
 function App(){
   return (
-   <View>
-    <Text>Testing</Text>
-   </View>
+   <Routes></Routes>
   );
 }
-
-
 
 export default App;
