@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 
 export const productReducer = createReducer({
+    //static initial data
     products: [
         {
             id: '8d7acbea',
