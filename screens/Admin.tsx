@@ -7,15 +7,18 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
+  Image,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 import {generateRandomString} from '../Utils';
+// import for picking up the images from Gallery
+import * as ImagePicker from 'react-native-image-picker';
 
 export const Admin = ({navigation}) => {
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [price, setPrice] = useState('');
-  const [imageUri, setImageUri] = useState('');
+  const [selectedImageUri, setSelectedImageUri] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = () => {
     // You can handle form submission here, e.g., send the data to an API or save it locally
@@ -23,9 +26,9 @@ export const Admin = ({navigation}) => {
     console.log('Title:', title);
     console.log('Subtitle:', subtitle);
     console.log('Price:', price);
-    console.log('Image URI:', imageUri);
+    console.log('Image URI:', selectedImageUri);
 
-    if (!title || !subtitle || !price || !imageUri) {
+    if (!title || !subtitle || !price || !selectedImageUri) {
       Alert.alert('Please fill out the fields.');
     } else {
       dispatch({
@@ -35,7 +38,7 @@ export const Admin = ({navigation}) => {
           title: title,
           subtitle: subtitle,
           price: Number(price),
-          imageUri: imageUri,
+          imageUri: selectedImageUri,
         },
       });
       Alert.alert('Product added Successfully!');
@@ -44,8 +47,27 @@ export const Admin = ({navigation}) => {
       setTitle('');
       setSubtitle('');
       setPrice('');
-      setImageUri('');
+      setSelectedImageUri('');
     }
+  };
+
+  // function for selecting images from the Gallery
+  const pickImage = () => {
+    ImagePicker.launchImageLibrary(
+      {
+        mediaType: 'photo',
+        includeBase64: false,
+        maxHeight: 200,
+        maxWidth: 200,
+        quality : 100
+      },
+      response => {
+        if (!response.didCancel) {
+          let imageLink = response.assets[0].uri;
+          setSelectedImageUri(imageLink);
+        }
+      },
+    );
   };
 
   return (
@@ -80,12 +102,14 @@ export const Admin = ({navigation}) => {
           keyboardType="numeric"
         />
         <Text style={styles.textColor}>Product Image:</Text>
-        {/* <TextInput
-          style={styles.input}
-          onChangeText={text => setImageUri(text)}
-          value={imageUri}
-        /> */}
-        <Button title='Upload Image' color={'#020101'}/>
+        {/* Button to pick Image from Gallery */}
+        <Button title="Upload Image" color={'#020101'} onPress={pickImage} />
+        {/* for displaying the fileName of the Image */}
+        {selectedImageUri && (
+          <Text style={styles.imageText}>
+            Image URI: {selectedImageUri.substring(0, 40)}...
+          </Text>
+        )}
         <View style={styles.btnStyle}>
           <TouchableOpacity onPress={() => handleSubmit()}>
             <Text style={styles.btnTxt}>Add Product</Text>
@@ -108,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 8,
     marginBottom: 16,
+    color : '#000000'
   },
   formData: {
     marginTop: 20,
@@ -121,10 +146,21 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: 'center',
     marginHorizontal: 50,
-    marginTop : 50
+    marginTop: 50,
   },
   textColor: {
     color: '#010101',
   },
-  btnTxt: {fontSize: 15, fontWeight: '500', textAlign: 'center' , color : '#010011'},
+  btnTxt: {
+    fontSize: 15,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: '#010011',
+  },
+  imageText: {
+    fontSize: 14,
+    marginTop: 10,
+    color: '#020101',
+    fontWeight: '500',
+  },
 });
