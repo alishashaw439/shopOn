@@ -47,8 +47,8 @@ export const Cart = ({ navigation }) => {
                 <FlatList data={cartItems} renderItem={({ item }) => <Card productBtnTapped={removeItem} btnTitle={"Remove Item"} item={item}></Card>} keyExtractor={item => item.id}></FlatList>
             </View>
             <View style={styles.priceCalculationContainer}>
-                <Text>Your Total</Text>
-                <Text>₹{calculatePrice()}</Text>
+                <Text style = {{ color : '#020202' , fontWeight : '500' }}>Your Total</Text>
+                <Text style = {{ color : '#020202' }}>₹{calculatePrice()}</Text>
             </View>
             <View style={styles.checkoutBtn}>
                 <TouchableOpacity onPress={() => checkOutBtnClicked()}>
@@ -62,8 +62,8 @@ export const Cart = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: { marginTop: 30, flex: 1 },
     backBtn: { left: 20, marginTop: 30 },
-    titleTxt: { textAlign: "center", fontSize: 30 },
+    titleTxt: { textAlign: "center", fontSize: 30 , color : '#010101' },
     priceCalculationContainer: { flexDirection: "row", justifyContent: "space-between", margin: 20, marginBottom: 60 },
-    checkoutBtn: { width: 300, height: 40, backgroundColor: "lightblue", marginBottom: 50, borderRadius: 50, justifyContent: "center", marginHorizontal: 50 },
-    checkoutTxt: { fontSize: 15, fontWeight: 500, textAlign: "center" }
+    checkoutBtn: { width: 300, height: 40, backgroundColor: "lightblue", marginBottom: 50, borderRadius: 50, justifyContent: "center", marginHorizontal: 50 , alignSelf : 'center' },
+    checkoutTxt: { fontSize: 15, fontWeight: '500', textAlign: "center" , color : '#010101' }
 })
