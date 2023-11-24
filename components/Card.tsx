@@ -12,7 +12,7 @@ export const Card = (props) => {
                 <Text style={styles.priceTxt}>₹{props.item.price}</Text>
                 <View style={styles.btnStyle}>
                     <TouchableOpacity onPress={()=>props.productBtnTapped(props.item)}>
-                        <Text style={{ textAlign: "center" }}>{props.btnTitle}</Text>
+                        <Text style={{ textAlign: "center" , color : '#010101' , fontWeight : '500' }}>{props.btnTitle}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
     container:{width: 200, height: 200, margin: 6, backgroundColor: "lightpink", flexWrap: "wrap", flexDirection: "column"
     },
     titleTxt:{
-        fontSize: 20, fontWeight: 600
+        fontSize: 20, fontWeight: '600' , color : '#010101'
     },
     subTitleTxt:{
-        fontSize: 16, fontWeight: 300
+        fontSize: 16, fontWeight: '300' , color : '#020202'
     },
     priceTxt:{
-        fontSize: 16, fontWeight: 300
+        fontSize: 16, fontWeight: '300' , color : '#030303'
     },
     btnStyle:{ marginTop: 80, backgroundColor: "lightblue", width: 150, height: 30, borderRadius: 50, alignItems: "center", justifyContent: "center" }
 })

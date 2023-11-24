@@ -14,7 +14,7 @@ export const Header = ({ cartPressed }) => {
 
 const styles = StyleSheet.create({
     titleTxt: {
-        fontSize: 30, fontWeight: 800, marginTop: 100, marginLeft: 10
+        fontSize: 30, fontWeight: '800', marginTop: 100, marginLeft: 10
     },
     cartStyle: { position: "absolute", right: 20, top: 40, zIndex: 10 }
 })
